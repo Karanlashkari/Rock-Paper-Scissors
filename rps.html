@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSogbolPcAWfBSMKYdZ7mPCkxClwWZ1hY2XRg&usqp=CAU");
+            background-size: 300px 300px;
+            backdrop-filter: blur(5px);
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .button {
+            width: 170px;
+            padding: 30px;
+            margin-right: 10px;
+            background: #01e6ff;
+            color: #ce1919ab;
+            border: 3px solid #c01f1fa4;
+            border-radius: 10%;
+            transition: 0.4s;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #508890;
+            color: #ff0b0b;
+            text-shadow: 1px 1px 10px rgb(255, 255, 255);
+            font-size: 23px;
+        }
+        .image {
+            max-width: 150px;
+            transition: 0.3s;
+        }
+    </style>
+    <script>
+        let user = 0;
+        let comp = 0;
+        let result = '';
+        function rock() {
+            let compmove = '';
+            const randomno = Math.random();
+            if (randomno >= 0 && randomno <= 1 / 3) {
+                compmove = "Rock";
+            } else if (randomno > 1 / 3 && randomno <= 2 / 3) {
+                compmove = "Paper";
+            } else if (randomno > 2 / 3 && randomno < 1) {
+                compmove = "Scissors";
+            }
+            result = '';
+            if (compmove === "Rock") {
+                result = 'tie';
+            } else if (compmove === "Paper") {
+                result = 'you lose';
+            } else if (compmove === "Scissors") {
+                result = 'you win';
+            }
+            alert(`You choose Rock. Computer Choose ${compmove}. ${result}`);
+            updatescore();
+        }
+        function paper() {
+            let compmove = '';
+            const randomno = Math.random();
+            if (randomno >= 0 && randomno <= 1 / 3) {
+                compmove = "Rock";
+            } else if (randomno > 1 / 3 && randomno <= 2 / 3) {
+                compmove = "Paper";
+            } else if (randomno > 2 / 3 && randomno < 1) {
+                compmove = "Scissors";
+            }
+            result = '';
+            if (compmove === "Rock") {
+                result = 'You Win';
+            } else if (compmove === "Paper") {
+                result = 'Tie';
+            } else if (compmove === "Scissors") {
+                result = 'You lose';
+            }
+            alert(`You choose Paper. Computer Choose ${compmove}. ${result}`);
+            updatescore();
+        }
+        function scissors() {
+            let compmove = '';
+            const randomno = Math.random();
+            if (randomno >= 0 && randomno <= 1 / 3) {
+                compmove = "Rock";
+            } else if (randomno > 1 / 3 && randomno <= 2 / 3) {
+                compmove = "Paper";
+            } else if (randomno > 2 / 3 && randomno < 1) {
+                compmove = "Scissors";
+            }
+            if (compmove === "Rock") {
+                result = 'You lose';
+            } else if (compmove === "Paper") {
+                result = 'You win';
+            } else if (compmove === "Scissors") {
+                result = 'Tie';
+            }
+            alert(`You choose Scissors. Computer Choose ${compmove}. ${result}`);
+            updatescore();
+        }
+        function updatescore() {
+            if (result === 'You win') {
+                user++;
+            } else if (result === 'You lose') {
+                comp++;
+            } else {
+                user++;
+                comp++;
+            }
+        }
+        function showscore() {
+            alert(`Computer: ${comp} Player: ${user}`);
+            user = 0;
+            comp = 0;
+        }
+    </script>
+</head>
+<body>
+    <h1 style="color:#ff0000; font-size: 40px; text-shadow: 1px 1px 10px rgb(2, 158, 255);">Rock
+        Paper Scissors</h1>
+    <div class="button-container">
+        <button class="button" onclick="rock()">Rock</button>
+        <img class="image"
+            src="https://www.wikihow.com/images/thumb/1/1e/Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-6-Version-4.jpg.webp"
+            alt="Rock Image">
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="paper()">Paper</button>
+        <img class="image"
+            src="https://www.wikihow.com/images/thumb/4/49/Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-7-Version-4.jpg.webp"
+            alt="Paper Image">
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="scissors()">Scissors</button>
+        <img class="image"
+            src="https://www.wikihow.com/images/thumb/b/b2/Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg/v4-728px-Play-Rock%2C-Paper%2C-Scissors-Step-8-Version-4.jpg.webp"
+            alt="Scissors Image">
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="showscore()">Score</button>
+    </div>
+</body>
+</html>
